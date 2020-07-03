@@ -1,0 +1,107 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://network/Lobby.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/font_square_large.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/fonts/font_square_medium.tres" type="DynamicFont" id=3]
+[ext_resource path="res://network/Client.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Theme" id=1]
+
+[node name="Lobby" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameLabel" type="Label" parent="."]
+anchor_right = 1.0
+margin_left = 20.0
+margin_top = 13.3053
+margin_right = -20.0
+margin_bottom = 37.3053
+custom_fonts/font = ExtResource( 2 )
+text = "NAME:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameEdit" type="LineEdit" parent="."]
+anchor_right = 1.0
+margin_left = 20.0
+margin_top = 38.0
+margin_right = -20.0
+margin_bottom = 72.0
+theme = SubResource( 1 )
+custom_fonts/font = ExtResource( 3 )
+custom_constants/minimum_spaces = 0
+text = "012345678901234"
+max_length = 15
+expand_to_text_length = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AddressLabel" type="Label" parent="."]
+anchor_right = 1.0
+margin_left = 20.0
+margin_top = 80.6463
+margin_right = -20.0
+margin_bottom = 104.646
+custom_fonts/font = ExtResource( 2 )
+text = "IP/PORT:"
+
+[node name="IpEdit" type="LineEdit" parent="."]
+anchor_right = 1.0
+margin_left = 20.0
+margin_top = 105.0
+margin_right = -20.0
+margin_bottom = 139.0
+theme = SubResource( 1 )
+custom_fonts/font = ExtResource( 3 )
+custom_constants/minimum_spaces = 0
+text = "123.123.123.123"
+max_length = 15
+expand_to_text_length = true
+caret_position = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PortEdit" type="LineEdit" parent="."]
+anchor_right = 1.0
+margin_left = 20.0
+margin_top = 142.813
+margin_right = -20.0
+margin_bottom = 176.813
+theme = SubResource( 1 )
+custom_fonts/font = ExtResource( 3 )
+custom_constants/minimum_spaces = 0
+text = "65535"
+max_length = 5
+expand_to_text_length = true
+caret_position = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ConnectButton" type="Button" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = -51.0
+margin_right = -20.0
+margin_bottom = -11.0
+custom_fonts/font = ExtResource( 2 )
+text = "Connect"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Client" parent="." instance=ExtResource( 4 )]
+[connection signal="text_changed" from="NameEdit" to="." method="_on_NameEdit_text_changed"]
+[connection signal="text_changed" from="IpEdit" to="." method="_on_IpEdit_text_changed"]
+[connection signal="text_changed" from="PortEdit" to="." method="_on_PortEdit_text_changed"]
+[connection signal="pressed" from="ConnectButton" to="." method="_on_ConnectButton_pressed"]
