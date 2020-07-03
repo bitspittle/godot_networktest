@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "ServerPoller",
 "language": "GDScript",
-"path": "res://network/ServerPoller.gd"
+"path": "res://network/server/ServerPoller.gd"
 } ]
 _global_script_class_icons={
 "ServerPoller": ""
@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="NetworkTest"
-run/main_scene="res://network/Lobby.tscn"
+run/main_scene="res://network/client/Lobby.tscn"
 config/icon="res://icon.png"
 
 [display]

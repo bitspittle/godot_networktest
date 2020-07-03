@@ -15,8 +15,10 @@ func _ready():
 	_port_regex.compile("^[0-9]{1,5}$")
 
 	_name_edit.text = ""
-	_ip_edit.text = "127.0.0.1"
+	_ip_edit.text = "35.247.95.255"
 	_ip_edit.caret_position = _ip_edit.text.length()
+	_port_edit.text = "44444"
+	_port_edit.caret_position = _port_edit.text.length()
 	_update_connect_enabled()
 
 	_name_edit.grab_focus()
